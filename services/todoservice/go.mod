@@ -1,4 +1,4 @@
-module todoservice
+module github.com/LeanSolutions/over-engineered-todos/services/todoservice
 
 go 1.18
 

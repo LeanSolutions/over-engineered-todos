@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_binary(
+    name = "todoservice",
+    embed = [":todoservice_lib"],
+    importpath = "github.com/LeanSolutions/over-engineered-todos/services/todoservice",
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "todoservice_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/LeanSolutions/over-engineered-todos/services/todoservice",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_gin-gonic_gin//:gin"],
+)
