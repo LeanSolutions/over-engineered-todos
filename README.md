@@ -21,4 +21,13 @@ This is an example application created with purpose of learning and experimentin
     
     # This will run specific component
     bazel run //services/[service folder]:[service name]
+    
+    # This will build image for specific go service
+    bazel run //services/todoservice:[image target] --@io_bazel_rules_docker//transitions:enable=no --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 -- --norun
+    
+    # List all the images
+    docker images
+    
+    # This will run image for specific go service
+    docker run -p [host port]:[container port] [service image with tag]
 ```
